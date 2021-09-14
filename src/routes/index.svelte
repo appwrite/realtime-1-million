@@ -130,6 +130,10 @@
 <section class="section is-medium">
 	<div class="container has-text-centered">
 		<h2 class="title is-size-3">Statistics</h2>
+		<p>
+			This benchmark was performed with a single WebSocket Server and 16 machines connecting to this
+			server.
+		</p>
 		{#each statistics as statistic}
 			<Chart file={statistic.file}>
 				<h3 class="subtitle is-size-4">
