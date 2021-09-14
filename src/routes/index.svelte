@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Chart from './_chart.svelte';
 	import logo from '../logo.svg';
+
 	type ChartType = {
 		title: string;
 		file: string;
@@ -129,14 +130,14 @@
 
 <section class="section is-medium">
 	<div class="container has-text-centered">
-		<h2 class="title is-size-3">Statistics</h2>
+		<h2 class="title is-2">Statistics</h2>
 		<p>
 			This benchmark was performed with a single WebSocket Server and 16 machines connecting to this
 			server.
 		</p>
 		{#each statistics as statistic}
 			<Chart file={statistic.file}>
-				<h3 class="subtitle is-size-4">
+				<h3 class="subtitle is-4">
 					{statistic.title}
 				</h3>
 				<p>{@html statistic.description}</p>
@@ -163,14 +164,14 @@
 
 <section class="section is-medium has-background-light	">
 	<div class="container has-text-centered">
-		<h2 class="title is-size-3">Performance</h2>
+		<h2 class="title is-2">Performance</h2>
 		<p>
 			This benchmark was performed on a DigitalOcean General Purpose Droplet with 32 cores and 128
 			GB of memory.
 		</p>
 		{#each performances as performance}
 			<Chart file={performance.file}>
-				<h3 class="subtitle is-size-4">
+				<h3 class="subtitle is-4">
 					{performance.title}
 				</h3>
 				<p>{@html performance.description}</p>
@@ -192,6 +193,35 @@
 				</table>
 			</Chart>
 		{/each}
+	</div>
+</section>
+
+<section class="section is-medium">
+	<div class="container has-text-centered">
+		<h2 class="title is-2 is-spaced">FAQ</h2>
+		<h3 class="subtitle is-4">What software was used?</h3>
+		<p class="mb-6">
+			We used <a href="https://github.com/processone/tsung" target="_blank">Tsung</a> to do the benchmark.
+		</p>
+		<h3 class="subtitle is-4">Can I see more?</h3>
+		<p class="mb-6">
+			The generated report including all logs can be found <a
+				href="https://github.com/appwrite/realtime-1-million/raw/main/benchmark.tar.gz"
+				target="_blank">on GitHub</a
+			>.
+		</p>
+	</div>
+</section>
+
+<section
+	class="section is-small has-background-dark has-text-centered has-text-light is-align-content-center	"
+>
+	<div class="columns">
+		<div class="column">
+			<img class="logo" alt="Appwrite" src={logo} />
+		</div>
+		<div class="column">Copyright © 2021 Appwrite</div>
+		<div class="column">Social Media Stuff</div>
 	</div>
 </section>
 
