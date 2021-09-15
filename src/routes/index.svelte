@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Chart from './_chart.svelte';
 	import logo from '../logo.svg';
+	import Footer from './_footer.svelte';
 
 	type ChartType = {
 		title: string;
@@ -123,7 +124,7 @@
 <section class="hero is-primary is-halfheight">
 	<div class="hero-body">
 		<div class="container has-text-centered">
-			<img class="logo" alt="Appwrite" src={logo} />
+			<img class="logo" alt="Appwrite" src={logo} width="256" height="64" />
 			<h1 class="title">Realtime to the Million!</h1>
 		</div>
 	</div>
@@ -202,7 +203,8 @@
 		<h2 class="title is-2 is-spaced">FAQ</h2>
 		<h3 class="subtitle is-4">What software was used?</h3>
 		<p class="mb-6">
-			We used <a href="https://github.com/processone/tsung" rel="noopener" target="_blank">Tsung</a> to do the benchmark.
+			We used <a href="https://github.com/processone/tsung" rel="noopener" target="_blank">Tsung</a>
+			to do the benchmark.
 		</p>
 		<h3 class="subtitle is-4">Can I see more?</h3>
 		<p class="mb-6">
@@ -215,20 +217,11 @@
 	</div>
 </section>
 
-<section
-	class="section is-small has-background-dark has-text-centered has-text-light is-align-content-center	"
->
-	<div class="columns">
-		<div class="column">
-			<img class="logo" alt="Appwrite" src={logo} />
-		</div>
-		<div class="column">Copyright © 2021 Appwrite</div>
-		<div class="column">Social Media Stuff</div>
-	</div>
-</section>
+<Footer />
 
 <style lang="scss">
 	.logo {
 		max-width: 16rem;
+		aspect-ratio: attr(width) / attr(height);
 	}
 </style>

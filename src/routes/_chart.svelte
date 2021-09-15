@@ -29,7 +29,7 @@
 	});
 </script>
 
-<div class="columns m-6">
+<div class="columns my-6">
 	<div class="column">
 		<div style="width: 100%;" bind:this={container} />
 	</div>
