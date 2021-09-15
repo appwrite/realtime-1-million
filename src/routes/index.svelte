@@ -117,6 +117,7 @@
 
 <svelte:head>
 	<title>Appwrite - 1 Million Benchmark</title>
+	<meta name="description" content="Appwrite's benchmark to 1 Million connection with Realtime." />
 </svelte:head>
 
 <section class="hero is-primary is-halfheight">
@@ -201,12 +202,13 @@
 		<h2 class="title is-2 is-spaced">FAQ</h2>
 		<h3 class="subtitle is-4">What software was used?</h3>
 		<p class="mb-6">
-			We used <a href="https://github.com/processone/tsung" target="_blank">Tsung</a> to do the benchmark.
+			We used <a href="https://github.com/processone/tsung" rel="noopener" target="_blank">Tsung</a> to do the benchmark.
 		</p>
 		<h3 class="subtitle is-4">Can I see more?</h3>
 		<p class="mb-6">
 			The generated report including all logs can be found <a
 				href="https://github.com/appwrite/realtime-1-million/raw/main/benchmark.tar.gz"
+				rel="noopener"
 				target="_blank">on GitHub</a
 			>.
 		</p>
