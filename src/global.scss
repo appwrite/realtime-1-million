@@ -2,8 +2,8 @@
 // restore default behaviour
 $body-overflow-y: auto;
 $table-background-color: none;
+
 @import './variables';
-@import '@fontsource/poppins';
 
 // Import only what you need from Bulma
 @import '../node_modules/bulma/sass/utilities/_all';

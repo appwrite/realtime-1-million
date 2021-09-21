@@ -2,6 +2,7 @@
 	import Chart from './_chart.svelte';
 	import logo from '../logo.svg';
 	import Footer from './_footer.svelte';
+	import '@fontsource/poppins';
 
 	type ChartType = {
 		title: string;
@@ -108,8 +109,8 @@
 			description: 'Amount of memory used over time in megabytes.',
 			metrics: [
 				{
-					name: 'Free',
-					description: 'Free memory in MB.'
+					name: 'Used',
+					description: 'Used memory in MB.'
 				}
 			]
 		}
