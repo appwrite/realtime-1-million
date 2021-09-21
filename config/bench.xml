@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/user/share/tsung/tsung-1.0.dtd">
+<tsung loglevel="debug" version="1.0">
+  <clients>
+    <client host="realtime-worker-1" cpu="4" use_controller_vm="false" maxusers="64000" />
+    <client host="realtime-worker-2" cpu="4" use_controller_vm="false" maxusers="64000" />
+    <client host="realtime-worker-3" cpu="4" use_controller_vm="false" maxusers="64000" />
+    <client host="realtime-worker-4" cpu="4" use_controller_vm="false" maxusers="64000" />
+    <client host="realtime-worker-5" cpu="4" use_controller_vm="false" maxusers="64000" />
+   </clients>
+
+  <servers>
+    <server host="10.118.0.2" port="9505" type="tcp" />
+  </servers>
+
+  <load>
+    <arrivalphase phase="1" duration="10000" unit="second">
+      <users maxnumber="100000" arrivalrate="1000" unit="second" />
+    </arrivalphase>
+  </load>
+
+  <options>
+    <option name="ports_range" min="1025" max="65535"/>
+  </options>
+
+  <sessions>
+    <session name="websocket" probability="100" type="ts_websocket">
+      <request>
+        <websocket type="connect" path="/v1/realtime?project=console&amp;channels[]=files"></websocket>
+      </request>
+
+      <for var="i" from="1" to="1000" incr="1">
+        <thinktime value="30"/>
+      </for>
+    </session>
+  </sessions>
+</tsung>

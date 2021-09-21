@@ -1,0 +1,25 @@
+[workers]
+134.122.64.xxx
+104.248.255.xxx
+104.248.43.xxx
+167.71.55.xxx
+134.122.76.xxx
+
+[newworkers]
+139.59.148.xxx
+161.35.194.xxx
+64.225.101.xxx
+161.35.194.xxx
+134.122.91.xxx
+161.35.77.xxx
+134.122.91.xxx
+167.172.107.xxx
+134.122.85.xxx
+161.35.204.xxx
+
+[manager]
+167.99.247.xxx
+
+[all:vars]
+ansible_user = root
+ansible_python_interpreter=/usr/bin/python3

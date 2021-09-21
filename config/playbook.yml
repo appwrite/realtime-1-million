@@ -1,0 +1,81 @@
+---
+
+- name: apt update and upgrade
+  hosts: newworkers
+  tasks:
+  - name: Update and upgrade apt packages
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 
+
+  - name: Run tsung setup
+    ansible.builtin.script: ./setup.sh
+
+- name: Setup manager server
+  hosts: manager
+  tasks:
+
+  - name: Install Docker
+    ansible.builtin.script: ./get-docker.sh
+
+  - name: Install Docker Compose
+    get_url: 
+      url : "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64"
+      dest: /usr/local/bin/docker-compose
+      mode: 'a+x'
+      force: yes
+
+  - name: Copy private key
+    ansible.builtin.copy:
+      src: ./id_rsa
+      dest: /root/.ssh/id_rsa
+      owner: root
+      group: root
+      mode: '0600'
+
+  - name: Copy tsung config
+    ansible.builtin.copy:
+      src: ./bench.xml
+      dest: /root/bench.xml
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: Copy etchosts
+    ansible.builtin.copy:
+      src: ./etchosts
+      dest: /root/etchosts
+      owner: root
+      group: root
+      mode: '0600'
+
+  - name: Append etchosts to /etc/hosts
+    ansible.builtin.shell: cat /root/etchosts >> /etc/hosts
+
+  - name: Clone Appwrite repo
+    ansible.builtin.git:
+      repo: https://github.com/appwrite/appwrite.git
+      dest: /root/appwrite
+      single_branch: yes
+      version: master
+
+- name: Copy sshkeys to workers
+  hosts: newworkers
+  tasks:
+    - name: add manager public key to workers
+      authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', './id_rsa.pub') }}"
+
+    - name: Copy etchosts
+      ansible.builtin.copy:
+        src: ./etchostsworker
+        dest: /root/etchostsworker
+        owner: root
+        group: root
+        mode: '0600'
+
+    - name: Append etchostsworker to /etc/hosts
+      ansible.builtin.shell: cat /root/etchostsworker >> /etc/hosts
