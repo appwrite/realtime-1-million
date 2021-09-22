@@ -119,7 +119,6 @@
 
 <svelte:head>
 	<title>Appwrite - 1 Million Benchmark</title>
-	<meta name="description" content="Appwrite's benchmark to 1 Million connection with Realtime." />
 </svelte:head>
 
 <section class="hero is-primary is-halfheight">
@@ -217,8 +216,6 @@
 		</p>
 	</div>
 </section>
-
-<Footer />
 
 <style lang="scss">
 	.logo {
