@@ -105,7 +105,7 @@
 		{
 			title: 'Memory',
 			file: 'csv_data/graphes-freemem-mean.csv',
-			description: 'Amount of memory used over time in MB of 128 GB memory in total.',
+			description: 'Amount of system memory used over time in MB.',
 			metrics: [
 				{
 					name: 'Used',
