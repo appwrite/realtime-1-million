@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Chart from './_chart.svelte';
 	import logo from '../logo.svg';
-	import Footer from './_footer.svelte';
 	import '@fontsource/poppins';
 
 	type ChartType = {
@@ -32,15 +31,15 @@
 		{
 			title: 'Response Times',
 			file: 'csv_data/graphes-perfs-mean.csv',
-			description: 'Response time at a given point of time.',
+			description: 'Response time at a given point of time. <br /><br />As seen, the response time was very constant until the limit of one million connections was reached.',
 			metrics: [
 				{
 					name: 'Connect',
-					description: 'Duration in <b>milliseconds</b> of the connection establishment.'
+					description: 'Duration in <b>milliseconds</b> of the handshake.'
 				},
 				{
 					name: 'Request',
-					description: 'Response time in milliseconds for the request.'
+					description: 'Response time in <b>milliseconds</b> for establishing the connection.'
 				}
 			]
 		},
@@ -64,7 +63,7 @@
 			title: 'Errors',
 			file: 'csv_data/graphes-errors-rate.csv',
 			description:
-				'Errors that occured when trying to connect or during an already established connection.',
+				'Errors that occured when trying to connect or during an already established connection.  <br /><br />As seen, there were no errors until the limit of one million connections was reached.',
 			metrics: [
 				{
 					name: 'Connect',
@@ -83,7 +82,7 @@
 			title: 'Usage',
 			file: 'csv_data/graphes-cpu-mean.csv',
 			description:
-				'The respective value of what percentage is actually being utilized. The CPU usage is an indicator of how much stress the processor is currently undergoing, and, what capacity is still available.',
+				'The respective value of what percentage is actually being utilized. The CPU usage is an indicator of how much stress the processor is currently undergoing, and, what capacity is still available. <br /><br /> The drop at 500 seconds results from no more new connections are established. That means, the last value reflects the load to maintain all connections.',
 			metrics: [
 				{
 					name: 'Usage',
@@ -106,7 +105,7 @@
 		{
 			title: 'Memory',
 			file: 'csv_data/graphes-freemem-mean.csv',
-			description: 'Amount of memory used over time in megabytes.',
+			description: 'Amount of memory used over time in MB of 128 GB memory in total.',
 			metrics: [
 				{
 					name: 'Used',
@@ -116,10 +115,6 @@
 		}
 	];
 </script>
-
-<svelte:head>
-	<title>Appwrite - 1 Million Benchmark</title>
-</svelte:head>
 
 <section class="hero is-primary is-halfheight">
 	<div class="hero-body">
@@ -164,7 +159,26 @@
 	</div>
 </section>
 
-<section class="section is-medium has-background-light	">
+<section class="section is-medium has-background-light">
+	<div class="container has-text-centered">
+		<div class="columns">
+			<div class="column">
+				<h3 class="title is-1">1,000,382</h3>
+				<span class="subtitle">Connected Users</span>
+			</div>
+			<div class="column">
+				<h3 class="title is-1">440.06 MB</h3>
+				<span class="subtitle">Total Network Traffic</span>
+			</div>
+			<div class="column">
+				<h3 class="title is-1">2.58 ms</h3>
+				<span class="subtitle">Average Response Time</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section is-medium">
 	<div class="container has-text-centered">
 		<h2 class="title is-2">Performance</h2>
 		<p>
@@ -198,7 +212,7 @@
 	</div>
 </section>
 
-<section class="section is-medium">
+<section class="section is-medium has-background-light">
 	<div class="container has-text-centered">
 		<h2 class="title is-2 is-spaced">FAQ</h2>
 		<h3 class="subtitle is-4">What software was used?</h3>
