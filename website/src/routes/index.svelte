@@ -31,7 +31,8 @@
 		{
 			title: 'Response Times',
 			file: 'csv_data/graphes-perfs-mean.csv',
-			description: 'Response time at a given point of time. <br /><br />As seen, the response time was very constant until the limit of one million connections was reached.',
+			description:
+				'Response time at a given point of time. <br /><br />As seen, the response time was very constant until the limit of one million connections was reached.',
 			metrics: [
 				{
 					name: 'Connect',
