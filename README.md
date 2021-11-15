@@ -257,5 +257,3 @@ We are more than satisfied with this number, especially since in production no s
 ## Results
 
 Since we are an open source company and want to provide as much transparency as possible, we offer all results, configuration and scripts for download. We have also prepared a web page where all results are easily accessible.
-
-> Talk about the results and possible even higher benchmarks in the future and also share the result page we prepared => https://appwrite-reatime-preview-torstendittmann.vercel.app/
