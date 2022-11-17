@@ -20,3 +20,4 @@ cd ..
 echo "root soft nofile 4000000" >> /etc/security/limits.conf
 echo "root hard nofile 4000000" >> /etc/security/limits.conf
 echo 20000500 > /proc/sys/fs/nr_open
+echo 2621440 > /proc/sys/net/netfilter/nf_conntrack_max
