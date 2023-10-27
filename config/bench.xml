@@ -1,4 +1,6 @@
-<?xml version="1.0"?><tsung loglevel="debug" version="1.0">
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/usr/share/tsung/tsung-1.0.dtd" [] >
+<tsung loglevel="debug" version="1.0">
   <clients>
     <client host="realtime-worker-1" cpu="4" use_controller_vm="false" maxusers="64000"/>
     <client host="realtime-worker-2" cpu="4" use_controller_vm="false" maxusers="64000"/>
